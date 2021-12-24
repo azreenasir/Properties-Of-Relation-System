@@ -83,7 +83,7 @@ def if_not_reflexive(relation, domain):
             result = new_closure.difference(closure)
             break
 
-        LabelReflexive = Label(frame, text="Its not reflexive because it doesn't containt " + str(result), font="Arial 20 bold",bg="#509ed8")
+        LabelReflexive = Label(frame, text="Its not reflexive because it doesn't contain " + str(result), font="Arial 20 bold",bg="#509ed8")
         LabelReflexive.place(relx=0.25, rely=0.6)
 
 # FUNCTION TO PROVE IT IS NOT TRANSITIVE
@@ -101,11 +101,11 @@ def if_not_transitive(relation, domain):
             result = new_closure.difference(closure)
             break
 
-        LabelTransitive = Label(frame, text="Its not transitive because it doesn't containt " + str(result), font="Arial 20 bold",bg="#509ed8")
+        LabelTransitive = Label(frame, text="Its not transitive because it doesn't contain " + str(result), font="Arial 20 bold",bg="#509ed8")
         LabelTransitive.place(relx=0.25, rely=0.65)
 
         if(len(result) == 0):
-                result = "Only 1 element given"
+                result = "Its not transitive because only 1 element given"
                 LabelTransitive.config(text=result)
 
 def if_not_symmetric(relation):
@@ -121,7 +121,7 @@ def if_not_symmetric(relation):
             result = new_closure.difference(closure)
             break
 
-        LabelSymmetric = Label(frame, text="Its not symmetric because it doesn't containt " + str(result), font="Arial 20 bold",bg="#509ed8")
+        LabelSymmetric = Label(frame, text="Its not symmetric because it doesn't contain " + str(result), font="Arial 20 bold",bg="#509ed8")
         LabelSymmetric.place(relx=0.25, rely=0.7)
 
 # FUNCTION TO CLEAR THE RESULT
@@ -140,11 +140,13 @@ root = tk.Tk()
 root.title('PROJECT CSC510!')
 root.geometry("1920x1080")
 root.withdraw()
+root.iconbitmap("icon.ico")
 
 # Create New Windows for Welcome Page
 welcome = tk.Tk()
 welcome.title("Welcome Page!!")
 welcome.geometry("700x500")
+welcome.iconbitmap("icon.ico")
 
 #################################################################
 
@@ -155,12 +157,21 @@ framewelcome = tk.Frame(welcome, bg="#509ed8")
 framewelcome.place(relwidth=1, relheight=1)
 
 # Label For Welcome Page 
-Labelwelcome = Label(welcome, text="Welcome to Our Project CSC510!", font="SimSun 22 bold", bg="#8cd5ff", borderwidth=2, relief="raised")
+Labelwelcome = Label(welcome, text="WELCOME TO OUR PROJECT CSC510!", font="SimSun 24 bold", bg="#8cd5ff", borderwidth=2, relief="raised")
 Labelwelcome.place(relx=0.14, rely=0.1)
 
 # Button to display the System
-Buttonshow = Button(welcome, text="Lets Roll", font="Arial, 12",padx=20,pady=10,fg="white",bg="#263d4d", command= lambda: [root.deiconify(), welcome.destroy()])
-Buttonshow.place(relx= 0.4, rely=0.3)
+Buttonshow = Button(welcome, text="Run Application", font="Arial, 12",padx=20,pady=10,fg="white",bg="#263d4d", command= lambda: [root.deiconify(), welcome.destroy()])
+Buttonshow.place(relx= 0.4, rely=0.6)
+
+# Button to exit program from welcome screen
+ButtonExit = Button(welcome, text="Exit", font="Arial, 12",padx=20,pady=10,fg="white",bg="#263d4d", command= lambda: [welcome.destroy(), root.destroy()])
+ButtonExit.place(relx=0.85, rely=0.85)
+
+# label to summarise what this apps do
+LabelSummary = Label(welcome, 
+                text="This application can prove whether the relation \n is reflexive, symmetric or transitive.\n It also explains why the relation\n is not reflexive, symmetric or transitive.", font="Ebrima 18 bold", bg="#D4F1F4" )
+LabelSummary.place(relx=0.1, rely=0.25)
 
 #################################################################
 
