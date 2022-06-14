@@ -1,3 +1,4 @@
+# IMPORT PYTHON LIBRARY
 from tkinter import *
 import tkinter as tk
 from tkinter import font
@@ -83,7 +84,9 @@ def if_not_reflexive(relation, domain):
             result = new_closure.difference(closure)
             break
 
-        LabelReflexive = Label(frame, text="Its not reflexive because it doesn't contain " + str(result), font="Arial 20 bold",bg="#509ed8")
+        LabelReflexive = Label(frame,
+                        text="Its not reflexive because it doesn't contain " + str(result),
+                        font="Arial 20 bold",bg="#509ed8")
         LabelReflexive.place(relx=0.25, rely=0.6)
 
 # FUNCTION TO PROVE IT IS NOT TRANSITIVE
@@ -101,13 +104,16 @@ def if_not_transitive(relation, domain):
             result = new_closure.difference(closure)
             break
 
-        LabelTransitive = Label(frame, text="Its not transitive because it doesn't contain " + str(result), font="Arial 20 bold",bg="#509ed8")
+        LabelTransitive = Label(frame,
+                         text="Its not transitive because it doesn't contain " + str(result),
+                         font="Arial 20 bold",bg="#509ed8")
         LabelTransitive.place(relx=0.25, rely=0.65)
 
         if(len(result) == 0):
                 result = "Its not transitive because only 1 element given"
                 LabelTransitive.config(text=result)
 
+# FUNCTION TO PROVE IT IS NOT SYMMETRIC
 def if_not_symmetric(relation):
     global LabelSymmetric
     relation = eval(relation)
@@ -121,13 +127,16 @@ def if_not_symmetric(relation):
             result = new_closure.difference(closure)
             break
 
-        LabelSymmetric = Label(frame, text="Its not symmetric because it doesn't contain " + str(result), font="Arial 20 bold",bg="#509ed8")
+        LabelSymmetric = Label(frame, 
+                        text="Its not symmetric because it doesn't contain " + str(result), 
+                        font="Arial 20 bold",bg="#509ed8")
         LabelSymmetric.place(relx=0.25, rely=0.7)
 
 # FUNCTION TO CLEAR THE RESULT
 def remove_text():
 	LabelResult.config(text="")
 
+# FUNCTION TO CLEAR THE RESULT FOR ALL
 def remove_prove():
     LabelReflexive.config(text="")
     LabelTransitive.config(text="")
@@ -170,7 +179,8 @@ ButtonExit.place(relx=0.85, rely=0.85)
 
 # label to summarise what this apps do
 LabelSummary = Label(welcome, 
-                text="This application can prove whether the relation \n is reflexive, symmetric or transitive.\n It also explains why the relation\n is not reflexive, symmetric or transitive.", font="Ebrima 18 bold", bg="#D4F1F4" )
+                text="This application can prove whether the relation \n is reflexive, symmetric or transitive.\n It also explains why the relation\n is not reflexive, symmetric or transitive.", 
+                font="Ebrima 18 bold", bg="#D4F1F4" )
 LabelSummary.place(relx=0.1, rely=0.25)
 
 #################################################################
@@ -226,7 +236,7 @@ LabelTransitive = Label(frame, text="",bg="#509ed8")
 LabelTransitive.place(relx=0.25, rely=0.65)
 
 LabelSymmetric = Label(frame, text="",bg="#509ed8")
-LabelTransitive.place(relx=0.25, rely=0.7)
+LabelSymmetric.place(relx=0.25, rely=0.7)
 
 # Output Label
 LabelOutput = tk.Label(frame, text="Result", font="Arial 20 bold", bg="#509ed8")
@@ -262,8 +272,10 @@ uitm = ImageTk.PhotoImage(resized)
 labelUITM = tk.Label(frame, image = uitm, bg="#509ed8")
 labelUITM.place(relx=0.872, rely=0.02)
 
+mainloop()
+
 #################################################################
 
-mainloop()
+
 
 #{(1,2), (1,3), (2,3), (2,1), (2,2), (3,2), (3,3), (1,1)}
